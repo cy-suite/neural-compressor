@@ -127,6 +127,15 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#neural_compressor.torch.utils.environ.device_synchronize" title="neural_compressor.torch.utils.environ.device_synchronize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">device_synchronize</span></code></a>(raw_func)</p></td>
 <td><p>Function decorator that calls accelerated.synchronize before and after a function call.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#neural_compressor.torch.utils.environ.can_pack_with_numba" title="neural_compressor.torch.utils.environ.can_pack_with_numba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">can_pack_with_numba</span></code></a>()</p></td>
+<td><p>Check if Numba and TBB are available for packing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#neural_compressor.torch.utils.environ.is_numba_available" title="neural_compressor.torch.utils.environ.is_numba_available"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_numba_available</span></code></a>()</p></td>
+<td><p>Check if Numba is available.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#neural_compressor.torch.utils.environ.is_tbb_available" title="neural_compressor.torch.utils.environ.is_tbb_available"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_tbb_available</span></code></a>()</p></td>
+<td><p>Check if TBB is available.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -203,6 +212,25 @@
 <dd><p>Function decorator that calls accelerated.synchronize before and after a function call.</p>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="neural_compressor.torch.utils.environ.can_pack_with_numba">
+<span class="sig-prename descclassname"><span class="pre">neural_compressor.torch.utils.environ.</span></span><span class="sig-name descname"><span class="pre">can_pack_with_numba</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/intel/neural-compressor/blob/master/neural_compressor/torch/utils/environ.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neural_compressor.torch.utils.environ.can_pack_with_numba" title="Link to this definition"></a></dt>
+<dd><p>Check if Numba and TBB are available for packing.</p>
+<p>To pack tensor with Numba, both Numba and TBB are required, and TBB should be configured correctly.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="neural_compressor.torch.utils.environ.is_numba_available">
+<span class="sig-prename descclassname"><span class="pre">neural_compressor.torch.utils.environ.</span></span><span class="sig-name descname"><span class="pre">is_numba_available</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/intel/neural-compressor/blob/master/neural_compressor/torch/utils/environ.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neural_compressor.torch.utils.environ.is_numba_available" title="Link to this definition"></a></dt>
+<dd><p>Check if Numba is available.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="neural_compressor.torch.utils.environ.is_tbb_available">
+<span class="sig-prename descclassname"><span class="pre">neural_compressor.torch.utils.environ.</span></span><span class="sig-name descname"><span class="pre">is_tbb_available</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/intel/neural-compressor/blob/master/neural_compressor/torch/utils/environ.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neural_compressor.torch.utils.environ.is_tbb_available" title="Link to this definition"></a></dt>
+<dd><p>Check if TBB is available.</p>
+</dd></dl>
+
 </section>
 </section>
 
@@ -220,7 +248,7 @@
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f269cdfb310> 
+   <jinja2.runtime.BlockReference object at 0x7f72ece24af0> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

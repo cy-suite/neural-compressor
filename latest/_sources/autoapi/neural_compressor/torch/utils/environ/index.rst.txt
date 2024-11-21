@@ -25,6 +25,9 @@ Functions
    neural_compressor.torch.utils.environ.get_torch_version
    neural_compressor.torch.utils.environ.get_accelerator
    neural_compressor.torch.utils.environ.device_synchronize
+   neural_compressor.torch.utils.environ.can_pack_with_numba
+   neural_compressor.torch.utils.environ.is_numba_available
+   neural_compressor.torch.utils.environ.is_tbb_available
 
 
 Module Contents
@@ -86,5 +89,22 @@ Module Contents
 .. py:function:: device_synchronize(raw_func)
 
    Function decorator that calls accelerated.synchronize before and after a function call.
+
+
+.. py:function:: can_pack_with_numba()
+
+   Check if Numba and TBB are available for packing.
+
+   To pack tensor with Numba, both Numba and TBB are required, and TBB should be configured correctly.
+
+
+.. py:function:: is_numba_available()
+
+   Check if Numba is available.
+
+
+.. py:function:: is_tbb_available()
+
+   Check if TBB is available.
 
 
