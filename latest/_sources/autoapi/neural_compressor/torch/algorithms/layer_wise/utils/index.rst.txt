@@ -134,7 +134,7 @@ Module Contents
    :type device: str, optional
 
 
-.. py:function:: register_weight_hooks(model, path, device='cpu', clean_weight=True, saved_path=None)
+.. py:function:: register_weight_hooks(model, path, device='cpu', clean_weight=True, saved_path=None, indicated_layers=None)
 
    Register weight hooks for model.
 
