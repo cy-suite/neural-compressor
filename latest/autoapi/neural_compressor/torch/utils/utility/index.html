@@ -154,8 +154,8 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#neural_compressor.torch.utils.utility.detect_device" title="neural_compressor.torch.utils.utility.detect_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">detect_device</span></code></a>([device])</p></td>
 <td><p>Detects the device to use for model execution (GPU, HPU, or CPU).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#neural_compressor.torch.utils.utility.run_fn_for_vlm_autoround" title="neural_compressor.torch.utils.utility.run_fn_for_vlm_autoround"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_fn_for_vlm_autoround</span></code></a>(model, dataloader[, seqlen, ...])</p></td>
-<td><p>Runs a model on a provided dataset with automatic device detection for vector-language models.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#neural_compressor.torch.utils.utility.find_matching_blocks" title="neural_compressor.torch.utils.utility.find_matching_blocks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_matching_blocks</span></code></a>(model, all_blocks[, ...])</p></td>
+<td><p>Find and return matching blocks in the model based on to_quant_block_names.</p></td>
 </tr>
 </tbody>
 </table>
@@ -452,20 +452,22 @@ or falls back to ‘cpu’.</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="neural_compressor.torch.utils.utility.run_fn_for_vlm_autoround">
-<span class="sig-prename descclassname"><span class="pre">neural_compressor.torch.utils.utility.</span></span><span class="sig-name descname"><span class="pre">run_fn_for_vlm_autoround</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seqlen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsamples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/intel/neural-compressor/blob/master/neural_compressor/torch/utils/utility.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neural_compressor.torch.utils.utility.run_fn_for_vlm_autoround" title="Link to this definition"></a></dt>
-<dd><p>Runs a model on a provided dataset with automatic device detection for vector-language models.</p>
+<dt class="sig sig-object py" id="neural_compressor.torch.utils.utility.find_matching_blocks">
+<span class="sig-prename descclassname"><span class="pre">neural_compressor.torch.utils.utility.</span></span><span class="sig-name descname"><span class="pre">find_matching_blocks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_blocks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_quant_block_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/intel/neural-compressor/blob/master/neural_compressor/torch/utils/utility.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neural_compressor.torch.utils.utility.find_matching_blocks" title="Link to this definition"></a></dt>
+<dd><p>Find and return matching blocks in the model based on to_quant_block_names.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> – The model to run.</p></li>
-<li><p><strong>dataloader</strong> – A PyTorch dataloader providing the input data for the model.</p></li>
-<li><p><strong>seqlen</strong> (<em>int</em><em>, </em><em>optional</em>) – The minimum sequence length of input data to process. Defaults to 512.</p></li>
-<li><p><strong>nsamples</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of samples to process before stopping. Defaults to 512.</p></li>
+<li><p><strong>model</strong> – The model (not used in this specific function but kept for completeness).</p></li>
+<li><p><strong>all_blocks</strong> – List of lists, where each inner list contains full block names in the model.</p></li>
+<li><p><strong>to_quant_block_names</strong> – Comma-separated string of target block names to match.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
+<dd class="field-even"><p>List of lists containing full paths of matching blocks in the model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>target_blocks</p>
 </dd>
 </dl>
 </dd></dl>
@@ -487,7 +489,7 @@ or falls back to ‘cpu’.</p></li>
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f93bd44b6d0> 
+   <jinja2.runtime.BlockReference object at 0x7fe93f2b7e20> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

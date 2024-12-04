@@ -61,7 +61,7 @@ Module Contents
    :rtype: DataLoader
 
 
-.. py:function:: get_mllm_dataloader(template, model, tokenizer, processor=None, image_processor=None, dataset='liuhaotian/llava_conv_58k', extra_data_dir=None, seqlen=512, bs=1, split=None, apply_template=None, truncation=False, seed=42, nsamples=512, gradient_accumulate_steps=1, quant_nontext_module=False)
+.. py:function:: get_mllm_dataloader(model, tokenizer, template=None, processor=None, image_processor=None, dataset=None, extra_data_dir=None, seqlen=None, batch_size=8, split=None, apply_template=None, truncation=None, seed=42, nsamples=128, gradient_accumulate_steps=1, quant_nontext_module=False)
 
    Generate a DataLoader for calibration using specified parameters.
 

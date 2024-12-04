@@ -34,7 +34,7 @@ Functions
    neural_compressor.torch.utils.utility.validate_modules
    neural_compressor.torch.utils.utility.get_multimodal_block_names
    neural_compressor.torch.utils.utility.detect_device
-   neural_compressor.torch.utils.utility.run_fn_for_vlm_autoround
+   neural_compressor.torch.utils.utility.find_matching_blocks
 
 
 Module Contents
@@ -269,17 +269,15 @@ Module Contents
    :rtype: str
 
 
-.. py:function:: run_fn_for_vlm_autoround(model, dataloader, seqlen=512, nsamples=512)
+.. py:function:: find_matching_blocks(model, all_blocks, to_quant_block_names=None)
 
-   Runs a model on a provided dataset with automatic device detection for vector-language models.
+   Find and return matching blocks in the model based on to_quant_block_names.
 
-   :param model: The model to run.
-   :param dataloader: A PyTorch dataloader providing the input data for the model.
-   :param seqlen: The minimum sequence length of input data to process. Defaults to 512.
-   :type seqlen: int, optional
-   :param nsamples: The number of samples to process before stopping. Defaults to 512.
-   :type nsamples: int, optional
+   :param model: The model (not used in this specific function but kept for completeness).
+   :param all_blocks: List of lists, where each inner list contains full block names in the model.
+   :param to_quant_block_names: Comma-separated string of target block names to match.
 
-   :returns: None
+   :returns: List of lists containing full paths of matching blocks in the model.
+   :rtype: target_blocks
 
 
