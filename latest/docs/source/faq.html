@@ -122,6 +122,13 @@ $<span class="w"> </span>conda/pip<span class="w"> </span>install<span class="w"
 </div>
 <p><strong>Solution:</strong> It’s actually already installed by <code class="docutils literal notranslate"><span class="pre">requirements_pt.txt</span></code>, so just need to set up with <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH</span></code>.</p>
 </section>
+<section id="issue-6">
+<h3>Issue 6:<a class="headerlink" href="#issue-6" title="Link to this heading"></a></h3>
+<p>torch._C._LinAlgError: linalg.cholesky: The factorization could not be completed because the input is not positive-definite.<br /><strong>Solution:</strong> This is a known issue. For more details, refer to
+<a class="reference external" href="https://github.com/AutoGPTQ/AutoGPTQ/issues/196">AutoGPTQ/AutoGPTQ#196</a>.
+Try increasing <code class="docutils literal notranslate"><span class="pre">percdamp</span></code> (percent of the average Hessian diagonal to use for dampening),
+or increasing <code class="docutils literal notranslate"><span class="pre">nsamples</span></code> (the number of calibration samples).</p>
+</section>
 </section>
 </section>
 
@@ -139,7 +146,7 @@ $<span class="w"> </span>conda/pip<span class="w"> </span>install<span class="w"
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f4cda6d3fd0> 
+   <jinja2.runtime.BlockReference object at 0x7f2ab0bbec20> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 
