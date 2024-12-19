@@ -35,6 +35,10 @@ Functions
    neural_compressor.torch.utils.utility.get_multimodal_block_names
    neural_compressor.torch.utils.utility.detect_device
    neural_compressor.torch.utils.utility.find_matching_blocks
+   neural_compressor.torch.utils.utility.get_non_persistent_buffers
+   neural_compressor.torch.utils.utility.load_non_persistent_buffers
+   neural_compressor.torch.utils.utility.move_input_device
+   neural_compressor.torch.utils.utility.forward_wrapper
 
 
 Module Contents
@@ -279,5 +283,52 @@ Module Contents
 
    :returns: List of lists containing full paths of matching blocks in the model.
    :rtype: target_blocks
+
+
+.. py:function:: get_non_persistent_buffers(model)
+
+   Get all non-persistent buffers in the model.
+
+   :param model: PyTorch model
+   :type model: torch.nn.Module
+
+   :returns: A dictionary containing all non-persistent buffers, {buffer_names: buffer_tensors}
+   :rtype: dict
+
+
+.. py:function:: load_non_persistent_buffers(model, non_persistent_buffers)
+
+   Load all non-persistent buffers into the model.
+
+   :param model: PyTorch model
+   :type model: torch.nn.Module
+   :param non_persistent_buffers: A dictionary containing all non-persistent buffers, {buffer_names: buffer_tensors}
+   :type non_persistent_buffers: dict
+
+
+.. py:function:: move_input_device(input, device='cpu')
+
+   Auto mapping input to device for all kinds of format.
+
+   :param input: input data
+   :type input: torch.tensor
+   :param device: target device. Defaults to "cpu".
+   :type device: str, optional
+
+   :returns: input data on target device
+   :rtype: input (torch.tensor)
+
+
+.. py:function:: forward_wrapper(model, input)
+
+   Model forward with device auto mapping.
+
+   :param model: input model
+   :type model: torch.nn.Module
+   :param input: input data
+   :type input: torch.tensor
+
+   :returns: output data
+   :rtype: output
 
 

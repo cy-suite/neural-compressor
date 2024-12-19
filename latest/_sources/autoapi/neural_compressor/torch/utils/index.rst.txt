@@ -17,6 +17,7 @@ Submodules
 
    /autoapi/neural_compressor/torch/utils/auto_accelerator/index
    /autoapi/neural_compressor/torch/utils/bit_packer/index
+   /autoapi/neural_compressor/torch/utils/block_wise/index
    /autoapi/neural_compressor/torch/utils/constants/index
    /autoapi/neural_compressor/torch/utils/environ/index
    /autoapi/neural_compressor/torch/utils/utility/index

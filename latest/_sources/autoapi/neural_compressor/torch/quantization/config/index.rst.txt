@@ -23,11 +23,12 @@ Classes
    neural_compressor.torch.quantization.config.AutoRoundConfig
    neural_compressor.torch.quantization.config.MXQuantConfig
    neural_compressor.torch.quantization.config.DynamicQuantConfig
-   neural_compressor.torch.quantization.config.StaticQuantConfig
+   neural_compressor.torch.quantization.config.INT8StaticQuantConfig
    neural_compressor.torch.quantization.config.SmoothQuantConfig
    neural_compressor.torch.quantization.config.HQQConfig
    neural_compressor.torch.quantization.config.FP8Config
    neural_compressor.torch.quantization.config.MixedPrecisionConfig
+   neural_compressor.torch.quantization.config.StaticQuantConfig
 
 
 Functions
@@ -208,14 +209,14 @@ Module Contents
    :returns: the default dynamic quant config.
 
 
-.. py:class:: StaticQuantConfig(w_dtype: str = 'int8', w_sym: bool = True, w_granularity: str = 'per_channel', w_algo: str = 'minmax', act_dtype: str = 'uint8', act_sym: bool = False, act_granularity: str = 'per_tensor', act_algo: str = 'minmax', excluded_precisions: list = [], white_list: Optional[List[neural_compressor.common.utils.OP_NAME_OR_MODULE_TYPE]] = DEFAULT_WHITE_LIST, model_info: Optional[List[Tuple[str, Callable]]] = None, **kwargs)
+.. py:class:: INT8StaticQuantConfig(w_dtype: str = 'int8', w_sym: bool = True, w_granularity: str = 'per_channel', w_algo: str = 'minmax', act_dtype: str = 'uint8', act_sym: bool = False, act_granularity: str = 'per_tensor', act_algo: str = 'minmax', excluded_precisions: list = [], white_list: Optional[List[neural_compressor.common.utils.OP_NAME_OR_MODULE_TYPE]] = DEFAULT_WHITE_LIST, model_info: Optional[List[Tuple[str, Callable]]] = None, **kwargs)
 
 
 
    Config class for static quantization.
 
 
-.. py:function:: get_default_static_config() -> StaticQuantConfig
+.. py:function:: get_default_static_config() -> INT8StaticQuantConfig
 
    Generate the default static quant config.
 
@@ -254,7 +255,7 @@ Module Contents
    :returns: the default HQQ config.
 
 
-.. py:class:: FP8Config(dump_stats_path: str = './hqt_output/measure', fp8_config: str = 'E4M3', hp_dtype: str = 'bf16', blocklist: dict = {'names': [], 'types': ()}, allowlist: dict = {'names': [], 'types': FP8_WHITE_LIST}, mode: str = 'AUTO', scale_method: str = 'maxabs_hw', scale_params: dict = {}, observer: str = 'maxabs', mod_dict: dict = {}, measure_exclude: str = 'OUTPUT', fake_quant: bool = False, scale_format: str = 'const', **kwargs)
+.. py:class:: FP8Config(dump_stats_path: str = './hqt_output/measure', fp8_config: str = 'E4M3', hp_dtype: str = 'bf16', blocklist: dict = {'names': [], 'types': ()}, allowlist: dict = {'names': [], 'types': get_white_list()}, mode: str = 'AUTO', scale_method: str = 'maxabs_hw', scale_params: dict = {}, observer: str = 'maxabs', mod_dict: dict = {}, measure_exclude: str = 'OUTPUT', fake_quant: bool = False, use_qdq: bool = False, scale_format: str = 'scalar', measure_on_hpu: bool = True, **kwargs)
 
 
 
@@ -306,5 +307,12 @@ Module Contents
    Generate the config set for WOQ tuning.
 
    :returns: the list of WOQ quant config.
+
+
+.. py:class:: StaticQuantConfig(white_list: Optional[List[neural_compressor.common.utils.OP_NAME_OR_MODULE_TYPE]] = DEFAULT_WHITE_LIST)
+
+
+
+   Base config class for torch backend.
 
 

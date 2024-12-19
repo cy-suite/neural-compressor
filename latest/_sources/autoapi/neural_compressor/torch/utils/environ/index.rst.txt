@@ -28,6 +28,8 @@ Functions
    neural_compressor.torch.utils.environ.can_pack_with_numba
    neural_compressor.torch.utils.environ.is_numba_available
    neural_compressor.torch.utils.environ.is_tbb_available
+   neural_compressor.torch.utils.environ.get_used_hpu_mem_MB
+   neural_compressor.torch.utils.environ.get_used_cpu_mem_MB
 
 
 Module Contents
@@ -106,5 +108,15 @@ Module Contents
 .. py:function:: is_tbb_available()
 
    Check if TBB is available.
+
+
+.. py:function:: get_used_hpu_mem_MB()
+
+   Get HPU used memory: MiB.
+
+
+.. py:function:: get_used_cpu_mem_MB()
+
+   Get the amount of CPU memory used by the current process in MiB (Mebibytes).
 
 

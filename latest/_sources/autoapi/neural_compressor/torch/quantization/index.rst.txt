@@ -17,6 +17,6 @@ Submodules
 
    /autoapi/neural_compressor/torch/quantization/algorithm_entry/index
    /autoapi/neural_compressor/torch/quantization/config/index
-   /autoapi/neural_compressor/torch/quantization/load_entry/index
+   /autoapi/neural_compressor/torch/quantization/save_load_entry/index
 
 

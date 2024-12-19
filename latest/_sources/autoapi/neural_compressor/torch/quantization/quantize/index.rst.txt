@@ -72,9 +72,9 @@ Module Contents
 
    Convert the prepared model to a quantized model.
 
-   :param model: the prepared model
+   :param model: torch model
    :type model: torch.nn.Module
-   :param quant_config: path to quantization config
+   :param quant_config: path to quantization config, only required when model is not prepared.
    :type quant_config: BaseConfig, optional
    :param inplace: It will change the given model in-place if True.
    :type inplace: bool, optional
