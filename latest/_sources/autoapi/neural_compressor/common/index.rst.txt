@@ -28,5 +28,6 @@ Submodules
    /autoapi/neural_compressor/common/base_tuning/index
    /autoapi/neural_compressor/common/benchmark/index
    /autoapi/neural_compressor/common/tuning_param/index
+   /autoapi/neural_compressor/common/version/index
 
 
