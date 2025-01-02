@@ -116,67 +116,36 @@ support AMD CPU, ARM CPU, and NVidia GPU through ONNX Runtime with limited testi
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Choose the necessary framework dependencies to install based on your deploy environment.</p>
 <section id="install-framework">
 <h3>Install Framework<a class="headerlink" href="#install-framework" title="Link to this heading"></a></h3>
-<section id="install-torch-for-cpu">
-<h4>Install torch for CPU<a class="headerlink" href="#install-torch-for-cpu" title="Link to this heading"></a></h4>
-<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>--index-url<span class="w"> </span>https://download.pytorch.org/whl/cpu
-</pre></div>
-</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://intel.github.io/intel-extension-for-pytorch/cpu/latest/">Install intel_extension_for_pytorch for CPU</a></p></li>
+<li><p><a class="reference external" href="https://intel.github.io/intel-extension-for-pytorch/xpu/latest/">Install intel_extension_for_pytorch for XPU</a></p></li>
+<li><p><a class="reference external" href="https://docs.habana.ai/en/latest/Installation_Guide/Bare_Metal_Fresh_OS.html#bare-metal-fresh-os-single-click">Use Docker Image with torch installed for HPU</a><br /><strong>Note</strong>: There is a version mapping between Intel Neural Compressor and Gaudi Software Stack, please refer to this <a class="reference external" href="./3x/gaudi_version_map.html">table</a> and make sure to use a matched combination.</p></li>
+<li><p><a class="reference external" href="https://pytorch.org/get-started/locally">Install torch for other platform</a></p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/install">Install TensorFlow</a></p></li>
+</ul>
 </section>
-<section id="use-docker-image-with-torch-installed-for-hpu">
-<h4>Use Docker Image with torch installed for HPU<a class="headerlink" href="#use-docker-image-with-torch-installed-for-hpu" title="Link to this heading"></a></h4>
-<p>https://docs.habana.ai/en/latest/Installation_Guide/Bare_Metal_Fresh_OS.html#bare-metal-fresh-os-single-click</p>
-<blockquote>
-<div><p><strong>Note</strong>:
-There is a version mapping between Intel Neural Compressor and Gaudi Software Stack, please refer to this <a class="reference external" href="./3x/gaudi_version_map.html">table</a> and make sure to use a matched combination.</p>
-</div></blockquote>
-</section>
-<section id="install-torch-intel-extension-for-pytorch-for-intel-gpu">
-<h4>Install torch/intel_extension_for_pytorch for Intel GPU<a class="headerlink" href="#install-torch-intel-extension-for-pytorch-for-intel-gpu" title="Link to this heading"></a></h4>
-<p>https://intel.github.io/intel-extension-for-pytorch/index.html#installation</p>
-</section>
-<section id="install-torch-for-other-platform">
-<h4>Install torch for other platform<a class="headerlink" href="#install-torch-for-other-platform" title="Link to this heading"></a></h4>
-<p>https://pytorch.org/get-started/locally</p>
-</section>
-<section id="install-tensorflow">
-<h4>Install tensorflow<a class="headerlink" href="#install-tensorflow" title="Link to this heading"></a></h4>
-<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>tensorflow
-</pre></div>
-</div>
-</section>
-</section>
-<section id="install-from-pypi">
-<h3>Install from pypi<a class="headerlink" href="#install-from-pypi" title="Link to this heading"></a></h3>
-<div class="highlight-Shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install 2.X API + Framework extension API + PyTorch dependency</span>
-pip<span class="w"> </span>install<span class="w"> </span>neural-compressor<span class="o">[</span>pt<span class="o">]</span>
+<section id="install-neural-compressor-from-pypi">
+<h3>Install Neural Compressor from pypi<a class="headerlink" href="#install-neural-compressor-from-pypi" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install 2.X API + Framework extension API + PyTorch dependency</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">neural</span><span class="o">-</span><span class="n">compressor</span><span class="p">[</span><span class="n">pt</span><span class="p">]</span>
 <span class="c1"># Install 2.X API + Framework extension API + TensorFlow dependency</span>
-pip<span class="w"> </span>install<span class="w"> </span>neural-compressor<span class="o">[</span>tf<span class="o">]</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">neural</span><span class="o">-</span><span class="n">compressor</span><span class="p">[</span><span class="n">tf</span><span class="p">]</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p><strong>Note</strong>:
-Further installation methods can be found under <a class="reference external" href="./installation_guide.html">Installation Guide</a>. check out our <a class="reference external" href="./faq.html">FAQ</a> for more details.</p>
-</div></blockquote>
+<p><strong>Note</strong>: Further installation methods can be found under <a class="reference external" href="./installation_guide.html">Installation Guide</a>. check out our <a class="reference external" href="./faq.html">FAQ</a> for more details.</p>
 </section>
 </section>
 <section id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
-<p>Setting up the environment:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;neural-compressor&gt;=2.3&quot;</span><span class="w"> </span><span class="s2">&quot;transformers&gt;=4.34.0&quot;</span><span class="w"> </span>torch<span class="w"> </span>torchvision
+<p>After successfully installing these packages, try your first quantization program. <strong>Following example code demonstrates FP8 Quantization</strong>, it is supported by Intel Gaudi2 AI Accelerator.<br />To try on Intel Gaudi2, docker image with Gaudi Software Stack is recommended, please refer to following script for environment setup. More details can be found in <a class="reference external" href="https://docs.habana.ai/en/latest/Installation_Guide/Bare_Metal_Fresh_OS.html#launch-docker-image-that-was-built">Gaudi Guide</a>.</p>
+<p>Run a container with an interactive shell,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">runtime</span><span class="o">=</span><span class="n">habana</span> <span class="o">-</span><span class="n">e</span> <span class="n">HABANA_VISIBLE_DEVICES</span><span class="o">=</span><span class="nb">all</span> <span class="o">-</span><span class="n">e</span> <span class="n">OMPI_MCA_btl_vader_single_copy_mechanism</span><span class="o">=</span><span class="n">none</span> <span class="o">--</span><span class="n">cap</span><span class="o">-</span><span class="n">add</span><span class="o">=</span><span class="n">sys_nice</span> <span class="o">--</span><span class="n">net</span><span class="o">=</span><span class="n">host</span> <span class="o">--</span><span class="n">ipc</span><span class="o">=</span><span class="n">host</span> <span class="n">vault</span><span class="o">.</span><span class="n">habana</span><span class="o">.</span><span class="n">ai</span><span class="o">/</span><span class="n">gaudi</span><span class="o">-</span><span class="n">docker</span><span class="o">/</span><span class="mf">1.19.0</span><span class="o">/</span><span class="n">ubuntu24</span><span class="mf">.04</span><span class="o">/</span><span class="n">habanalabs</span><span class="o">/</span><span class="n">pytorch</span><span class="o">-</span><span class="n">installer</span><span class="o">-</span><span class="mf">2.5.1</span><span class="p">:</span><span class="n">latest</span>
 </pre></div>
 </div>
-<p>After successfully installing these packages, try your first quantization program.</p>
-<section id="fp8-quantization">
-<h3><a class="reference external" href="./3x/PT_FP8Quant.html">FP8 Quantization</a><a class="headerlink" href="#fp8-quantization" title="Link to this heading"></a></h3>
-<p>Following example code demonstrates FP8 Quantization, it is supported by Intel Gaudi2 AI Accelerator.</p>
-<p>To try on Intel Gaudi2, docker image with Gaudi Software Stack is recommended, please refer to following script for environment setup. More details can be found in <a class="reference external" href="https://docs.habana.ai/en/latest/Installation_Guide/Bare_Metal_Fresh_OS.html#launch-docker-image-that-was-built">Gaudi Guide</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run a container with an interactive shell</span>
-docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--runtime<span class="o">=</span>habana<span class="w"> </span>-e<span class="w"> </span><span class="nv">HABANA_VISIBLE_DEVICES</span><span class="o">=</span>all<span class="w"> </span>-e<span class="w"> </span><span class="nv">OMPI_MCA_btl_vader_single_copy_mechanism</span><span class="o">=</span>none<span class="w"> </span>--cap-add<span class="o">=</span>sys_nice<span class="w"> </span>--net<span class="o">=</span>host<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>vault.habana.ai/gaudi-docker/1.19.0/ubuntu24.04/habanalabs/pytorch-installer-2.5.1:latest
-</pre></div>
-</div>
-<p>Run the example:</p>
+<p>Run the example,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">FP8Config</span><span class="p">,</span>
     <span class="n">prepare</span><span class="p">,</span>
@@ -199,10 +168,8 @@ docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </s
 <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="weight-only-large-language-model-loading-llms">
-<h3>Weight-Only Large Language Model Loading (LLMs)<a class="headerlink" href="#weight-only-large-language-model-loading-llms" title="Link to this heading"></a></h3>
-<p>Following example code demonstrates weight-only large language model loading on Intel Gaudi2 AI Accelerator.</p>
+<p>More <a class="reference external" href="./3x/PT_FP8Quant.html">FP8 quantization doc</a>.</p>
+<p><strong>Following example code demonstrates weight-only large language model loading</strong> on Intel Gaudi2 AI Accelerator.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">load</span>
 
 <span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;TheBloke/Llama-2-7B-GPTQ&quot;</span>
@@ -214,9 +181,7 @@ docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </s
 <span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Note:</strong></p>
-<p>Intel Neural Compressor will convert the model format from auto-gptq to hpu format on the first load and save hpu_model.safetensors to the local cache directory for the next load. So it may take a while to load for the first time.</p>
-</section>
+<p><strong>Note:</strong> Intel Neural Compressor will convert the model format from auto-gptq to hpu format on the first load and save hpu_model.safetensors to the local cache directory for the next load. So it may take a while to load for the first time.</p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
@@ -343,7 +308,7 @@ View <a class="reference external" href="https://github.com/intel/neural-compres
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f4e74a680a0> 
+   <jinja2.runtime.BlockReference object at 0x7fd1e0b51f30> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 
