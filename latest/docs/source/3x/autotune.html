@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AutoTune &mdash; Intel® Neural Compressor 3.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=68dfede1" />
@@ -130,10 +130,10 @@
 <section id="working-with-pytorch-model">
 <h3>Working with PyTorch Model<a class="headerlink" href="#working-with-pytorch-model" title="Link to this heading"></a></h3>
 <p>The example below demonstrates how to autotune a PyTorch model on four <code class="docutils literal notranslate"><span class="pre">RTNConfig</span></code> configurations.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">RTNConfig</span><span class="p">,</span> <span class="n">TuningConfig</span><span class="p">,</span> <span class="n">autotune</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">RTNConfig</span><span class="p">,</span> <span class="n">TuningConfig</span><span class="p">,</span> <span class="n">autotune</span>
 
 
-<span class="k">def</span> <span class="nf">eval_fn</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">eval_fn</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="k">return</span> <span class="o">...</span>
 
 
@@ -149,7 +149,7 @@
 <section id="working-with-tensorflow-model">
 <h3>Working with Tensorflow Model<a class="headerlink" href="#working-with-tensorflow-model" title="Link to this heading"></a></h3>
 <p>The example below demonstrates how to autotune a TensorFlow model on two <code class="docutils literal notranslate"><span class="pre">StaticQuantConfig</span></code> configurations.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.tensorflow.quantization</span> <span class="kn">import</span> <span class="n">StaticQuantConfig</span><span class="p">,</span> <span class="n">autotune</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.tensorflow.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">StaticQuantConfig</span><span class="p">,</span> <span class="n">autotune</span>
 
 <span class="n">calib_dataloader</span> <span class="o">=</span> <span class="n">MyDataloader</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 <span class="n">custom_tune_config</span> <span class="o">=</span> <span class="n">TuningConfig</span><span class="p">(</span>
@@ -160,7 +160,7 @@
 <span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">eval_fn</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">eval_fn</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
     <span class="k">return</span> <span class="o">...</span>
 
 
@@ -187,7 +187,7 @@
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f447fa7f100> 
+   <jinja2.runtime.BlockReference object at 0x7f9acf1b1990> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

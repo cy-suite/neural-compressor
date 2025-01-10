@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pruning &mdash; Intel® Neural Compressor 3.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=68dfede1" />
@@ -319,7 +319,7 @@ Users can pass the customized training/evaluation functions to <code class="docu
 </li>
 <li><p>Step 2: Enable pruning functionalities</p>
 <p>[<strong>Experimental option</strong> ]Modify model and optimizer.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.training</span> <span class="kn">import</span> <span class="n">prepare_pruning</span><span class="p">,</span> <span class="n">WeightPruningConfig</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.training</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare_pruning</span><span class="p">,</span> <span class="n">WeightPruningConfig</span>
 
 <span class="n">config</span> <span class="o">=</span> <span class="n">WeightPruningConfig</span><span class="p">(</span><span class="n">configs</span><span class="p">)</span>
 <span class="n">prepare_pruning</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>  <span class="c1"># modify model and optimizer</span>
@@ -343,7 +343,7 @@ Users can pass the customized training/evaluation functions to <code class="docu
 <span class="sd">on_train_end() # End of pruner, print sparse information</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">neural_compressor.training</span> <span class="kn">import</span> <span class="n">prepare_compression</span><span class="p">,</span> <span class="n">WeightPruningConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.training</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare_compression</span><span class="p">,</span> <span class="n">WeightPruningConfig</span>
 
 <span class="n">config</span> <span class="o">=</span> <span class="n">WeightPruningConfig</span><span class="p">(</span><span class="n">configs</span><span class="p">)</span>
 <span class="n">compression_manager</span> <span class="o">=</span> <span class="n">prepare_compression</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>  <span class="c1"># Define a pruning object.</span>
@@ -389,7 +389,7 @@ Users can pass the customized training/evaluation functions to <code class="docu
 </div>
 <p>If you find yourself uncertain about the names of the linear modules within the MLP of the model or desire a simplified approach to setting up pruning, you can utilize a module that automatically generates a config:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># auto config</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.compression.pruner</span> <span class="kn">import</span> <span class="n">parse_auto_slim_config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.compression.pruner</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse_auto_slim_config</span>
 
 <span class="n">pruning_configs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">auto_configs</span> <span class="o">=</span> <span class="n">parse_auto_slim_config</span><span class="p">(</span>
@@ -405,7 +405,7 @@ Users can pass the customized training/evaluation functions to <code class="docu
 </li>
 <li><p>Step 2: Enable pruning functionalities
 The process itself is quite straightforward. By passing the prepared config and the calibration dataset, the pruning process can be automatically carried out with a simple API call.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="kn">from</span> <span class="nn">neural_compressor.training</span> <span class="kn">import</span> <span class="n">prepare_pruning</span><span class="p">,</span> <span class="n">WeightPruningConfig</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.training</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare_pruning</span><span class="p">,</span> <span class="n">WeightPruningConfig</span>
   <span class="n">configs</span> <span class="o">=</span> <span class="n">WeightPruningConfig</span><span class="p">(</span>
       <span class="n">pruning_configs</span><span class="p">,</span>
       <span class="n">target_sparsity</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">target_sparsity</span><span class="p">,</span> <span class="c1"># global setting for all pruners(optional)</span>
@@ -438,7 +438,7 @@ The process itself is quite straightforward. By passing the prepared config and 
 </li>
 <li><p>Step 2: Enable pruning functionalities
 By providing the pruning config, calibration dataset, and specifying the desired device card number, the pruning process can be executed automatically with a simple API call.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.training</span> <span class="kn">import</span> <span class="n">prepare_pruning</span><span class="p">,</span> <span class="n">WeightPruningConfig</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.training</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare_pruning</span><span class="p">,</span> <span class="n">WeightPruningConfig</span>
 
 <span class="n">configs</span> <span class="o">=</span> <span class="n">WeightPruningConfig</span><span class="p">(</span>
     <span class="n">pruning_configs</span><span class="p">,</span>
@@ -518,7 +518,7 @@ For more details, please refer to <a class="reference external" href="../../neur
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f447f96e6e0> 
+   <jinja2.runtime.BlockReference object at 0x7f9acec814e0> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

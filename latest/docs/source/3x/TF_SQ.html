@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smooth Quant &mdash; Intel® Neural Compressor 3.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=68dfede1" />
@@ -114,7 +114,7 @@
 <section id="using-a-fixed-alpha">
 <h3>Using a Fixed <code class="docutils literal notranslate"><span class="pre">alpha</span></code><a class="headerlink" href="#using-a-fixed-alpha" title="Link to this heading"></a></h3>
 <p>To set a fixed alpha for the entire model, users can follow this example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.tensorflow</span> <span class="kn">import</span> <span class="n">SmoothQuantConfig</span><span class="p">,</span> <span class="n">StaticQuantConfig</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">SmoothQuantConfig</span><span class="p">,</span> <span class="n">StaticQuantConfig</span>
 
 <span class="n">quant_config</span> <span class="o">=</span> <span class="p">[</span><span class="n">SmoothQuantConfig</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">StaticQuantConfig</span><span class="p">()]</span>
 <span class="n">q_model</span> <span class="o">=</span> <span class="n">quantize_model</span><span class="p">(</span><span class="n">output_graph_def</span><span class="p">,</span> <span class="p">[</span><span class="n">sq_config</span><span class="p">,</span> <span class="n">static_config</span><span class="p">],</span> <span class="n">calib_dataloader</span><span class="p">)</span>
@@ -126,7 +126,7 @@
 <h3>Determining the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> through auto-tuning<a class="headerlink" href="#determining-the-alpha-through-auto-tuning" title="Link to this heading"></a></h3>
 <p>Users can search for the best <code class="docutils literal notranslate"><span class="pre">alpha</span></code>  for the entire model.The tuning process looks for the optimal <code class="docutils literal notranslate"><span class="pre">alpha</span></code> value from a list of <code class="docutils literal notranslate"><span class="pre">alpha</span></code> values provided by the user.</p>
 <p>Here is an example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.tensorflow</span> <span class="kn">import</span> <span class="n">StaticQuantConfig</span><span class="p">,</span> <span class="n">SmoothQuantConfig</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">StaticQuantConfig</span><span class="p">,</span> <span class="n">SmoothQuantConfig</span>
 
 <span class="n">custom_tune_config</span> <span class="o">=</span> <span class="n">TuningConfig</span><span class="p">(</span><span class="n">config_set</span><span class="o">=</span><span class="p">[</span><span class="n">SmoothQuantConfig</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]),</span> <span class="n">StaticQuantConfig</span><span class="p">()])</span>
 <span class="n">best_model</span> <span class="o">=</span> <span class="n">autotune</span><span class="p">(</span>
@@ -162,7 +162,7 @@
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f447eede230> 
+   <jinja2.runtime.BlockReference object at 0x7f9acf2ac700> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

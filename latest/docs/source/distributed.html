@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Distributed Training and Inference (Evaluation) &mdash; Intel® Neural Compressor 3.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=68dfede1" />
@@ -172,7 +172,7 @@
 <p>Do quantization based on distributed training/inference</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># import tensorflow as tf                      (Only TensorFlow 1.x needs)</span>
 <span class="c1"># tf.compat.v1.enable_eager_execution()        (Only TensorFlow 1.x needs)</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.experimental</span> <span class="kn">import</span> <span class="n">Quantization</span><span class="p">,</span> <span class="n">common</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.experimental</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quantization</span><span class="p">,</span> <span class="n">common</span>
 <span class="n">quantizer</span> <span class="o">=</span> <span class="n">Quantization</span><span class="p">(</span><span class="s2">&quot;yaml_file_path&quot;</span><span class="p">)</span>
 <span class="n">quantizer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
 <span class="n">q_model</span> <span class="o">=</span> <span class="n">quantizer</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>                          <span class="c1"># q_model -&gt; quantized low-precision model </span>
@@ -181,7 +181,7 @@
 <p>Only do model accuracy evaluation based on distributed inference</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># import tensorflow as tf                      (Only TensorFlow 1.x needs)</span>
 <span class="c1"># tf.compat.v1.enable_eager_execution()        (Only TensorFlow 1.x needs)</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.experimental</span> <span class="kn">import</span> <span class="n">Quantization</span><span class="p">,</span> <span class="n">common</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.experimental</span><span class="w"> </span><span class="kn">import</span> <span class="n">Quantization</span><span class="p">,</span> <span class="n">common</span>
 <span class="n">quantizer</span> <span class="o">=</span> <span class="n">Quantization</span><span class="p">(</span><span class="s2">&quot;yaml_file_path&quot;</span><span class="p">)</span>
 <span class="n">quantizer</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span> 
 <span class="n">quantizer</span><span class="o">.</span><span class="n">pre_process</span><span class="p">()</span>                        <span class="c1"># If you simply want to do model evaluation with no need quantization, you should preprocess the quantizer before evaluation.</span>
@@ -217,7 +217,7 @@
 <ul class="simple">
 <li><p>Prepare training function:</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">):</span>
     <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">epochs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
         <span class="n">train_loader</span><span class="o">.</span><span class="n">sampler</span><span class="o">.</span><span class="n">set_epoch</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
@@ -234,14 +234,14 @@
                 <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">dry_run</span><span class="p">:</span>
                     <span class="k">break</span>
 
-<span class="k">def</span> <span class="nf">train_func</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">train_func</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">train</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Use user defined training function in Neural Compressor:</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.experimental</span> <span class="kn">import</span> <span class="n">Component</span><span class="p">,</span> <span class="n">common</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.experimental</span><span class="w"> </span><span class="kn">import</span> <span class="n">Component</span><span class="p">,</span> <span class="n">common</span>
 <span class="n">component</span> <span class="o">=</span> <span class="n">Component</span><span class="p">(</span><span class="n">yaml_file</span><span class="p">)</span>
 <span class="n">component</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
 <span class="n">component</span><span class="o">.</span><span class="n">train_func</span> <span class="o">=</span> <span class="n">train_func</span>
@@ -344,7 +344,7 @@
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f448432bcd0> 
+   <jinja2.runtime.BlockReference object at 0x7f9acf602dd0> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

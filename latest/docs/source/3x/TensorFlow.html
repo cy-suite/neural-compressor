@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TensorFlow &mdash; Intel® Neural Compressor 3.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=68dfede1" />
@@ -123,7 +123,7 @@
 <p>Intel(R) Neural Compressor provides <code class="docutils literal notranslate"><span class="pre">quantize_model</span></code> and <code class="docutils literal notranslate"><span class="pre">autotune</span></code> as main interfaces for supported algorithms on TensorFlow framework.</p>
 <p><strong>quantize_model</strong></p>
 <p>The design philosophy of the <code class="docutils literal notranslate"><span class="pre">quantize_model</span></code> interface is easy-of-use. With minimal parameters requirement, including <code class="docutils literal notranslate"><span class="pre">model</span></code>, <code class="docutils literal notranslate"><span class="pre">quant_config</span></code>, <code class="docutils literal notranslate"><span class="pre">calib_dataloader</span></code>, <code class="docutils literal notranslate"><span class="pre">calib_iteration</span></code>, it offers a straightforward choice of quantizing TF model in one-shot.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quantize_model</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">quantize_model</span><span class="p">(</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">],</span>
     <span class="n">quant_config</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseConfig</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
     <span class="n">calib_dataloader</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -138,8 +138,8 @@
 <p><code class="docutils literal notranslate"><span class="pre">calib_iteration</span></code> is used to decide how many iterations the calibration process will be run.</p>
 <p><code class="docutils literal notranslate"><span class="pre">calib_func</span></code> is a substitution for <code class="docutils literal notranslate"><span class="pre">calib_dataloader</span></code> when the built-in calibration function of INC does not work for model inference.</p>
 <p>Here is a simple example of using <code class="docutils literal notranslate"><span class="pre">quantize_model</span></code> interface with a dummy calibration dataloader and the default <code class="docutils literal notranslate"><span class="pre">StaticQuantConfig</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.tensorflow</span> <span class="kn">import</span> <span class="n">StaticQuantConfig</span><span class="p">,</span> <span class="n">quantize_model</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.tensorflow.utils</span> <span class="kn">import</span> <span class="n">DummyDataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">StaticQuantConfig</span><span class="p">,</span> <span class="n">quantize_model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.tensorflow.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">DummyDataset</span>
 
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">DummyDataset</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">calib_dataloader</span> <span class="o">=</span> <span class="n">MyDataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">)</span>
@@ -151,7 +151,7 @@
 <p><strong>autotune</strong></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">autotune</span></code> interface, on the other hand, provides greater flexibility and power. It’s particularly useful when accuracy is a critical factor. If the initial quantization doesn’t meet the tolerance of accuracy loss, <code class="docutils literal notranslate"><span class="pre">autotune</span></code> will iteratively try quantization rules according to the <code class="docutils literal notranslate"><span class="pre">tune_config</span></code>.</p>
 <p>Just like <code class="docutils literal notranslate"><span class="pre">quantize_model</span></code>, <code class="docutils literal notranslate"><span class="pre">autotune</span></code> requires <code class="docutils literal notranslate"><span class="pre">model</span></code>, <code class="docutils literal notranslate"><span class="pre">calib_dataloader</span></code> and <code class="docutils literal notranslate"><span class="pre">calib_iteration</span></code>. And the <code class="docutils literal notranslate"><span class="pre">eval_fn</span></code>, <code class="docutils literal notranslate"><span class="pre">eval_args</span></code> are used to build evaluation process.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">autotune</span><span class="p">(</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">autotune</span><span class="p">(</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">],</span>
     <span class="n">tune_config</span><span class="p">:</span> <span class="n">TuningConfig</span><span class="p">,</span>
     <span class="n">eval_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
@@ -170,8 +170,8 @@
 <p><code class="docutils literal notranslate"><span class="pre">calib_iteration</span></code> is used to decide how many iterations the calibration process will be run.</p>
 <p><code class="docutils literal notranslate"><span class="pre">calib_func</span></code> is a substitution for <code class="docutils literal notranslate"><span class="pre">calib_dataloader</span></code> when the built-in calibration function of INC does not work for model inference.</p>
 <p>Here is a simple example of using <code class="docutils literal notranslate"><span class="pre">autotune</span></code> interface with different quantization rules defined by a list of  <code class="docutils literal notranslate"><span class="pre">StaticQuantConfig</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.common.base_tuning</span> <span class="kn">import</span> <span class="n">TuningConfig</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.tensorflow</span> <span class="kn">import</span> <span class="n">StaticQuantConfig</span><span class="p">,</span> <span class="n">autotune</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.common.base_tuning</span><span class="w"> </span><span class="kn">import</span> <span class="n">TuningConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.tensorflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">StaticQuantConfig</span><span class="p">,</span> <span class="n">autotune</span>
 
 <span class="n">calib_dataloader</span> <span class="o">=</span> <span class="n">MyDataloader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">Dataset</span><span class="p">())</span>
 <span class="n">custom_tune_config</span> <span class="o">=</span> <span class="n">TuningConfig</span><span class="p">(</span>
@@ -331,7 +331,7 @@
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f447fa7e230> 
+   <jinja2.runtime.BlockReference object at 0x7f9acf14a560> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

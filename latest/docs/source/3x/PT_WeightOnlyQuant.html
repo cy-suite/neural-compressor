@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PyTorch Weight Only Quantization &mdash; Intel® Neural Compressor 3.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=68dfede1" />
@@ -281,7 +281,7 @@
 <div><p><strong>Notes:</strong> <code class="docutils literal notranslate"><span class="pre">model_path</span></code> is only used when use_layer_wise=True. <code class="docutils literal notranslate"><span class="pre">layer-wise</span></code> is stay-tuned.</p>
 </div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quantization code</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">RTNConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">RTNConfig</span>
 
 <span class="n">quant_config</span> <span class="o">=</span> <span class="n">RTNConfig</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">quant_config</span><span class="p">)</span>
@@ -352,7 +352,7 @@
 </tr>
 </tbody>
 </table><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quantization code</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">GPTQConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">GPTQConfig</span>
 
 <span class="n">quant_config</span> <span class="o">=</span> <span class="n">GPTQConfig</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">quant_config</span><span class="p">)</span>
@@ -464,7 +464,7 @@
 </tr>
 </tbody>
 </table><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quantization code</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">AutoRoundConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">AutoRoundConfig</span>
 
 <span class="n">quant_config</span> <span class="o">=</span> <span class="n">AutoRoundConfig</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">quant_config</span><span class="p">)</span>
@@ -526,7 +526,7 @@
 </tr>
 </tbody>
 </table><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quantization code</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">AWQConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">AWQConfig</span>
 
 <span class="n">quant_config</span> <span class="o">=</span> <span class="n">AWQConfig</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">quant_config</span><span class="p">,</span> <span class="n">example_inputs</span><span class="o">=</span><span class="n">example_inputs</span><span class="p">)</span>
@@ -583,7 +583,7 @@
 </tr>
 </tbody>
 </table><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quantization code</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">TEQConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">TEQConfig</span>
 
 <span class="n">quant_config</span> <span class="o">=</span> <span class="n">TEQConfig</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">quant_config</span><span class="p">,</span> <span class="n">example_inputs</span><span class="o">=</span><span class="n">example_inputs</span><span class="p">)</span>
@@ -620,7 +620,7 @@
 </tr>
 </tbody>
 </table><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quantization code</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">HQQConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">HQQConfig</span>
 
 <span class="n">quant_config</span> <span class="o">=</span> <span class="n">HQQConfig</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">quant_config</span><span class="p">)</span>
@@ -666,7 +666,7 @@
 <h3>Saving and Loading<a class="headerlink" href="#saving-and-loading" title="Link to this heading"></a></h3>
 <p>The saved_results folder contains two files: quantized_model.pt and qconfig.json, and the generated model is a quantized model. The quantitative model will include WeightOnlyLinear. To support low memory inference, Intel(R) Neural Compressor implemented WeightOnlyLinear, a torch.nn.Module, to compress the fake quantized fp32 model. Since torch does not provide flexible data type storage, WeightOnlyLinear combines low bits data into a long date type, such as torch.int8 and torch.int32. Low bits data includes weights and zero points. When using WeightOnlyLinear for inference, it will restore the compressed data to float32 and run torch linear function.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Quantization code</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">RTNConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">RTNConfig</span>
 
 <span class="n">quant_config</span> <span class="o">=</span> <span class="n">RTNConfig</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">quant_config</span><span class="p">)</span>
@@ -676,7 +676,7 @@
 <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;saved_results&quot;</span><span class="p">)</span>
 
 <span class="c1"># load</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">load</span>
 
 <span class="n">orig_model</span> <span class="o">=</span> <span class="n">YOURMODEL</span><span class="p">()</span>
 <span class="n">loaded_model</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span>
@@ -692,8 +692,8 @@
 <img src="./imgs/lwq.png" width=780 height=429><p><em>Figure 1: The process of layer-wise quantization for PyTorch model. The color grey means empty parameters and the color blue represents parameters need to be quantized. Every rectangle inside model represents one layer.</em></p>
 <p>Currently, we support LWQ for <code class="docutils literal notranslate"><span class="pre">RTN</span></code>, <code class="docutils literal notranslate"><span class="pre">AutoRound</span></code>, and <code class="docutils literal notranslate"><span class="pre">GPTQ</span></code>.</p>
 <p>Here, we take the <code class="docutils literal notranslate"><span class="pre">RTN</span></code> algorithm as example to demonstrate the usage of LWQ.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.torch.quantization</span> <span class="kn">import</span> <span class="n">RTNConfig</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">prepare</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.torch</span> <span class="kn">import</span> <span class="n">load_empty_model</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch.quantization</span><span class="w"> </span><span class="kn">import</span> <span class="n">RTNConfig</span><span class="p">,</span> <span class="n">convert</span><span class="p">,</span> <span class="n">prepare</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_empty_model</span>
 
 <span class="n">model_state_dict_path</span> <span class="o">=</span> <span class="s2">&quot;/path/to/model/state/dict&quot;</span>
 <span class="n">float_model</span> <span class="o">=</span> <span class="n">load_empty_model</span><span class="p">(</span><span class="n">model_state_dict_path</span><span class="p">)</span>
@@ -737,7 +737,7 @@
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f447f095a20> 
+   <jinja2.runtime.BlockReference object at 0x7f9ace569390> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

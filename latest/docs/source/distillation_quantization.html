@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Distillation for Quantization &mdash; Intel® Neural Compressor 3.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=68dfede1" />
@@ -127,7 +127,7 @@
 </pre></div>
 </div>
 <p>Following section illustrates how to use hooks in user pass-in training function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">training_func_for_nc</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">training_func_for_nc</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
     <span class="n">compression_manager</span><span class="o">.</span><span class="n">on_train_begin</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
         <span class="n">compression_manager</span><span class="o">.</span><span class="n">on_epoch_begin</span><span class="p">(</span><span class="n">epoch</span><span class="p">)</span>
@@ -147,10 +147,10 @@
 </pre></div>
 </div>
 <p>In this case, the launcher code is like the following:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.experimental</span> <span class="kn">import</span> <span class="n">common</span><span class="p">,</span> <span class="n">Distillation</span><span class="p">,</span> <span class="n">Quantization</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.config</span> <span class="kn">import</span> <span class="n">DistillationConfig</span><span class="p">,</span> <span class="n">KnowledgeDistillationLossConfig</span>
-<span class="kn">from</span> <span class="nn">neural_compressor</span> <span class="kn">import</span> <span class="n">QuantizationAwareTrainingConfig</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.training</span> <span class="kn">import</span> <span class="n">prepare_compression</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.experimental</span><span class="w"> </span><span class="kn">import</span> <span class="n">common</span><span class="p">,</span> <span class="n">Distillation</span><span class="p">,</span> <span class="n">Quantization</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistillationConfig</span><span class="p">,</span> <span class="n">KnowledgeDistillationLossConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor</span><span class="w"> </span><span class="kn">import</span> <span class="n">QuantizationAwareTrainingConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.training</span><span class="w"> </span><span class="kn">import</span> <span class="n">prepare_compression</span>
 
 <span class="n">combs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">distillation_criterion</span> <span class="o">=</span> <span class="n">KnowledgeDistillationLossConfig</span><span class="p">()</span>
@@ -186,7 +186,7 @@
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f447e475030> 
+   <jinja2.runtime.BlockReference object at 0x7f9acf5d0460> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

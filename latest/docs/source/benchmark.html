@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Benchmarking &mdash; Intel® Neural Compressor 3.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=68dfede1" />
@@ -135,8 +135,8 @@ Users can get the performance of the float32 model and the optimized low precisi
 And please make sure <code class="docutils literal notranslate"><span class="pre">cores_per_instance</span> <span class="pre">*</span> <span class="pre">num_of_instance</span></code> must be less than CPU physical core numbers.
 <code class="docutils literal notranslate"><span class="pre">benchmark.fit</span></code> accept <code class="docutils literal notranslate"><span class="pre">b_dataloader</span></code> or <code class="docutils literal notranslate"><span class="pre">b_func</span></code> as input.
 <code class="docutils literal notranslate"><span class="pre">b_func</span></code> is customized benchmark function. If user passes the <code class="docutils literal notranslate"><span class="pre">b_dataloader</span></code>, then <code class="docutils literal notranslate"><span class="pre">b_func</span></code> is not required.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.config</span> <span class="kn">import</span> <span class="n">BenchmarkConfig</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.benchmark</span> <span class="kn">import</span> <span class="n">fit</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">BenchmarkConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.benchmark</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit</span>
 
 <span class="n">conf</span> <span class="o">=</span> <span class="n">BenchmarkConfig</span><span class="p">(</span><span class="n">warmup</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cores_per_instance</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">num_of_instance</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 <span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;./int8.pb&quot;</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="n">conf</span><span class="p">,</span> <span class="n">b_dataloader</span><span class="o">=</span><span class="n">eval_dataloader</span><span class="p">)</span>
@@ -163,7 +163,7 @@ And please make sure <code class="docutils literal notranslate"><span class="pre
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f447ea86f50> 
+   <jinja2.runtime.BlockReference object at 0x7f9ace96f5b0> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

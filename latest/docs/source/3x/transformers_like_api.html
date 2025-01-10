@@ -5,7 +5,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Transformers-like API &mdash; Intel® Neural Compressor 3.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=68dfede1" />
@@ -142,7 +142,7 @@
 <h3>Usage examples for CPU device<a class="headerlink" href="#usage-examples-for-cpu-device" title="Link to this heading"></a></h3>
 <p>quantization and inference with <code class="docutils literal notranslate"><span class="pre">RtnConfig</span></code>, <code class="docutils literal notranslate"><span class="pre">AwqConfig</span></code>, <code class="docutils literal notranslate"><span class="pre">TeqConfig</span></code>, <code class="docutils literal notranslate"><span class="pre">GPTQConfig</span></code>, <code class="docutils literal notranslate"><span class="pre">AutoRoundConfig</span></code> on CPU device.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># RTN</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">RtnConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">RtnConfig</span>
 
 <span class="n">model_name_or_path</span> <span class="o">=</span> <span class="s2">&quot;MODEL_NAME_OR_PATH&quot;</span>
 <span class="n">woq_config</span> <span class="o">=</span> <span class="n">RtnConfig</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -152,7 +152,7 @@
 <span class="p">)</span>
 
 <span class="c1"># AWQ</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">AwqConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">AwqConfig</span>
 
 <span class="n">model_name_or_path</span> <span class="o">=</span> <span class="s2">&quot;MODEL_NAME_OR_PATH&quot;</span>
 <span class="n">woq_config</span> <span class="o">=</span> <span class="n">AwqConfig</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -162,8 +162,8 @@
 <span class="p">)</span>
 
 <span class="c1"># TEQ</span>
-<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">TeqConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">TeqConfig</span>
 
 <span class="n">model_name_or_path</span> <span class="o">=</span> <span class="s2">&quot;MODEL_NAME_OR_PATH&quot;</span>
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_or_path</span><span class="p">)</span>
@@ -174,8 +174,8 @@
 <span class="p">)</span>
 
 <span class="c1"># GPTQ</span>
-<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">GPTQConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">GPTQConfig</span>
 
 <span class="n">model_name_or_path</span> <span class="o">=</span> <span class="s2">&quot;MODEL_NAME_OR_PATH&quot;</span>
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_or_path</span><span class="p">)</span>
@@ -186,8 +186,8 @@
 <span class="p">)</span>
 
 <span class="c1"># AutoRound</span>
-<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">AutoRoundConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">AutoRoundConfig</span>
 
 <span class="n">model_name_or_path</span> <span class="o">=</span> <span class="s2">&quot;MODEL_NAME_OR_PATH&quot;</span>
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_or_path</span><span class="p">)</span>
@@ -198,7 +198,7 @@
 <span class="p">)</span>
 
 <span class="c1"># inference</span>
-<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span>
 
 <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Once upon a time, a little girl&quot;</span>
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_or_path</span><span class="p">)</span>
@@ -212,7 +212,7 @@
 </div>
 <p>You can also save and load your quantized low bit model by the below code.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># quant</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">RtnConfig</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">RtnConfig</span>
 
 <span class="n">model_name_or_path</span> <span class="o">=</span> <span class="s2">&quot;MODEL_NAME_OR_PATH&quot;</span>
 <span class="n">woq_config</span> <span class="o">=</span> <span class="n">RtnConfig</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -244,10 +244,10 @@
 <li><p>Build and Install PyTorch and intel-extension-for-pytorch. Please follow <a class="reference external" href="https://intel.github.io/intel-extension-for-pytorch/index.html#installation">the link</a>.</p></li>
 <li><p>Quantization Model and Inference</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">intel_extension_for_pytorch</span> <span class="k">as</span> <span class="nn">ipex</span>
-<span class="kn">from</span> <span class="nn">neural_compressor.transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span>
-<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span>
-<span class="kn">import</span> <span class="nn">torch</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">intel_extension_for_pytorch</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ipex</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModelForCausalLM</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 
 <span class="n">model_name_or_path</span> <span class="o">=</span> <span class="s2">&quot;Qwen/Qwen-7B-Chat&quot;</span>  <span class="c1"># MODEL_NAME_OR_PATH</span>
 <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Once upon a time, a little girl&quot;</span>
@@ -275,7 +275,7 @@
 <ul class="simple">
 <li><p>First step: Quantize and save model</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">neural_compressor.transformers</span> <span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">RtnConfig</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neural_compressor.transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoModelForCausalLM</span><span class="p">,</span> <span class="n">RtnConfig</span>
 
 <span class="n">model_name_or_path</span> <span class="o">=</span> <span class="s2">&quot;MODEL_NAME_OR_PATH&quot;</span>
 <span class="n">woq_config</span> <span class="o">=</span> <span class="n">RtnConfig</span><span class="p">(</span><span class="n">bits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -300,7 +300,7 @@
 <span class="p">)</span>
 
 <span class="c1"># inference</span>
-<span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">AutoTokenizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">AutoTokenizer</span>
 
 <span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;Once upon a time, a little girl&quot;</span>
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name_or_path</span><span class="p">)</span>
@@ -348,7 +348,7 @@
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   <jinja2.runtime.BlockReference object at 0x7f447f2d0520> 
+   <jinja2.runtime.BlockReference object at 0x7f9acf3369e0> 
   <p></p><div><a href='https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html' data-cookie-notice='true'>Cookies</a> <a href='https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html'>| Privacy</a></div>
 
 

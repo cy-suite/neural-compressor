@@ -46,7 +46,7 @@ Module Contents
    https://github.com/openvinotoolkit/nncf/blob/develop/nncf/torch/quantization/hessian_trace.py
 
 
-.. py:function:: compare_weights(float_dict: Dict[str, Any], quantized_dict: Dict[str, Any]) -> Dict[str, Dict[str, torch.Tensor]]
+.. py:function:: compare_weights(float_dict: Dict[str, Any], quantized_dict: Dict[str, Any]) -> Dict[str, Dict[str, torch]]
 
    Compare the weights of the float module with its corresponding quantized module.
 
