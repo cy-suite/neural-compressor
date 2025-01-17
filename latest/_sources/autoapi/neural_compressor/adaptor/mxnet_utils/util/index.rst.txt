@@ -56,7 +56,7 @@ Functions
 Module Contents
 ---------------
 
-.. py:class:: OpType
+.. py:class:: OpType(*args, **kwds)
 
 
 

@@ -225,7 +225,7 @@ Module Contents
    The statistics printer.
 
 
-.. py:class:: MODE
+.. py:class:: MODE(*args, **kwds)
 
 
 

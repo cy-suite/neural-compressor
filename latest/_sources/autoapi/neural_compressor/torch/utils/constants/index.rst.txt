@@ -20,7 +20,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: SaveLoadFormat
+.. py:class:: SaveLoadFormat(*args, **kwds)
 
 
 

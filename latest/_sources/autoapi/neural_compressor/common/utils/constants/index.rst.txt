@@ -20,7 +20,7 @@ Classes
 Module Contents
 ---------------
 
-.. py:class:: Mode
+.. py:class:: Mode(*args, **kwds)
 
 
 

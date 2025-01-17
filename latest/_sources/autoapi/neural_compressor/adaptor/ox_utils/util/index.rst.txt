@@ -72,7 +72,7 @@ Module Contents
    Map data type and its string representation.
 
 
-.. py:class:: QuantType
+.. py:class:: QuantType(*args, **kwds)
 
 
 
@@ -212,21 +212,21 @@ Module Contents
    Represents a linearly quantized weight input from ONNX operators.
 
 
-.. py:class:: QuantizationMode
+.. py:class:: QuantizationMode(*args, **kwds)
 
 
 
    Represent QuantizationMode value.
 
 
-.. py:class:: QuantizedValueType
+.. py:class:: QuantizedValueType(*args, **kwds)
 
 
 
    Represent QuantizedValueType value.
 
 
-.. py:class:: QuantFormat
+.. py:class:: QuantFormat(*args, **kwds)
 
 
 
